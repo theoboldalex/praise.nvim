@@ -12,9 +12,16 @@ function M.blame()
     local file = api.nvim_buf_get_name(0)
     local cursor = api.nvim_win_get_cursor(0)
     local line = cursor[1]
-    local cmd = string.format("git blame -L %d,%d %s", line, line, file)
+    local cmd = string.format(
+        "git blame --date=human -cL %d,%d %s | awk '{ print $2 \": \" $3 \" \" $4 \" \" $5 }' | sed 's/^(//'",
+        line,
+        line,
+        file
+    )
     local output = exec(cmd)
 
+    -- TODO:  create an autocmd which fires after last cursor move
+    -- TODO: clear any previous virtual text from buffer on cursor move
     extmark.set(line, { output, "Comment" })
 end
 
