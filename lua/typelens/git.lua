@@ -14,9 +14,8 @@ function M.blame()
     local line = cursor[1]
     local cmd = string.format("git blame -L %d,%d %s", line, line, file)
     local output = exec(cmd)
-    local namespace = api.nvim_create_namespace("whodunnit")
 
-    extmark.set(namespace, line, { output, "Comment" })
+    extmark.set(line, { output, "Comment" })
 end
 
 return M
