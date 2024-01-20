@@ -24,10 +24,7 @@ function M.blame()
 end
 
 function M.clear()
-    local cursor = api.nvim_win_get_cursor(0)
-    local line = cursor[1]
-
-    extmark.clear(line)
+    extmark.clear()
 end
 
 return M
