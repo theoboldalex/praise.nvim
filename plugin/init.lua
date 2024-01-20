@@ -1,3 +1,3 @@
-local typelens = require("typelens")
+local gitlens = require("gitlens")
 
-typelens.setup()
+gitlens.setup()

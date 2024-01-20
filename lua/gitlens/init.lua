@@ -1,4 +1,4 @@
-local git = require("typelens.git")
+local git = require("gitlens.git")
 local M = {}
 
 function M.setup()

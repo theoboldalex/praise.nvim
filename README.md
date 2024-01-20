@@ -1,2 +1,2 @@
-# typelens.nvim
-A NeoVim plugin which uses virtual text to show types
+# gitlens.nvim
+A NeoVim plugin thqt shows inline Git Blame logs

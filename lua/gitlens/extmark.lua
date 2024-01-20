@@ -1,6 +1,6 @@
 local api = vim.api
 local M = {
-    namespace = api.nvim_create_namespace("whodunnit"),
+    namespace = api.nvim_create_namespace("gitlens"),
     id = nil
 }
 

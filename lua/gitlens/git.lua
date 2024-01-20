@@ -1,5 +1,5 @@
-local utils = require("typelens.utils")
-local extmark = require("typelens.extmark")
+local utils = require("gitlens.utils")
+local extmark = require("gitlens.extmark")
 local M = {}
 local api = vim.api
 
