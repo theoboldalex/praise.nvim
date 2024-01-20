@@ -15,9 +15,9 @@ function M.set(line, chunk)
     M.id = id
 end
 
-function M.clear(line)
+function M.clear()
     local buf = 0
-    api.nvim_buf_clear_namespace(buf, M.namespace, line - 1, line)
+    api.nvim_buf_clear_namespace(buf, M.namespace, 0, vim.fn.line("$"))
 end
 
 return M

@@ -1,10 +1,9 @@
 local git = require("gitlens.git")
-local api = vim.api
 local M = {}
 
 function M.setup()
     vim.opt.updatetime = 2000
-    api.nvim_create_autocmd({ "CursorHold" }, {
+    vim.api.nvim_create_autocmd({ "CursorHold" }, {
         buffer = 0,
         callback = function()
             git.blame()
@@ -12,11 +11,13 @@ function M.setup()
         desc = "Shows the Git Blame virtual text"
     })
 
+    -- we need cursor pos both pre and post move
+    local current_line = vim.api.nvim_win_get_cursor(0)
     -- this is a bug. We need to pass the line moved from so we can calculate where to clear old text
-    api.nvim_create_autocmd({ "CursorMoved" }, {
+    vim.api.nvim_create_autocmd({ "CursorMoved" }, {
         buffer = 0,
         callback = function()
-            git.clear()
+            git.clear(current_line)
         end,
         desc = "Clears the Git Blame virtual text"
     })
