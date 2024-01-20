@@ -6,6 +6,5 @@ function M.setup()
         git.blame()
     end)
 end
-M.setup()
 
 return M

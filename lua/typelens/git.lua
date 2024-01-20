@@ -13,7 +13,7 @@ function M.blame()
     local cursor = api.nvim_win_get_cursor(0)
     local line = cursor[1]
     local cmd = string.format(
-        "git blame --date=human -cL %d,%d %s | awk '{ print $2 \": \" $3 \" \" $4 \" \" $5 }' | sed 's/^(//'",
+        "git blame --date=relative -cL %d,%d %s | awk '{ print $2 \": \" $3 \" \" $4 \" \" $5 }' | sed 's/^(//'",
         line,
         line,
         file
