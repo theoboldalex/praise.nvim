@@ -1,2 +1,6 @@
 # gitlens.nvim
-A NeoVim plugin thqt shows inline Git Blame logs
+
+## WIP
+This project is a work in progress so there may be breaking changes.
+
+A NeoVim plugin that shows inline Git Blame logs
