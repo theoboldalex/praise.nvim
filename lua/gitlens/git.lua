@@ -20,8 +20,6 @@ function M.blame()
     )
     local output = exec(cmd)
 
-    -- TODO:  create an autocmd which fires after last cursor move
-    -- TODO: clear any previous virtual text from buffer on cursor move
     extmark.set(line, { output, "Comment" })
 end
 
