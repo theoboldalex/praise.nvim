@@ -8,8 +8,15 @@ local function exec(cmd)
     return utils.trim(output)
 end
 
-local function is_tracked_file(file_path)
-    return true
+function M.is_tracked_file(file_path)
+    if file_path == "" then
+        return false
+    end
+
+    local cmd = string.format("git ls-files --error-unmatch %s", file_path)
+    local result = exec(cmd)
+
+    return not string.match(result, "^error")
 end
 
 function M.clear()
@@ -21,6 +28,7 @@ function M.blame()
     local cursor = api.nvim_win_get_cursor(0)
     local line = cursor[1]
     local blame_cmd = string.format(
+        -- TODO: remove dependencies on awk and sed (as wonderful as they are)
         "git blame --date=relative -cL %d,%d %s | awk '{ print $2 \": \" $3 \" \" $4 \" \" $5 }' | sed 's/^(//'",
         line,
         line,
@@ -28,9 +36,7 @@ function M.blame()
     )
     local output = exec(blame_cmd)
 
-    if is_tracked_file("<placeholder_please_replace_me>") then
-        extmark.set(line, { output, "Comment" })
-    end
+    extmark.set(line, { output, "Comment" })
 end
 
 return M
