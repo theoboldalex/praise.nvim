@@ -8,17 +8,21 @@ local function exec(cmd)
     return utils.trim(output)
 end
 
+local function is_tracked_file(file_path)
+    return true
+end
+
 function M.blame()
     local file = api.nvim_buf_get_name(0)
     local cursor = api.nvim_win_get_cursor(0)
     local line = cursor[1]
-    local cmd = string.format(
+    local blame_cmd = string.format(
         "git blame --date=relative -cL %d,%d %s | awk '{ print $2 \": \" $3 \" \" $4 \" \" $5 }' | sed 's/^(//'",
         line,
         line,
         file
     )
-    local output = exec(cmd)
+    local output = exec(blame_cmd)
 
     extmark.set(line, { output, "Comment" })
 end
