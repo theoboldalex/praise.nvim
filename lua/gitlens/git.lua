@@ -12,6 +12,10 @@ local function is_tracked_file(file_path)
     return true
 end
 
+function M.clear()
+    extmark.clear()
+end
+
 function M.blame()
     local file = api.nvim_buf_get_name(0)
     local cursor = api.nvim_win_get_cursor(0)
@@ -24,11 +28,9 @@ function M.blame()
     )
     local output = exec(blame_cmd)
 
-    extmark.set(line, { output, "Comment" })
-end
-
-function M.clear()
-    extmark.clear()
+    if is_tracked_file("<placeholder_please_replace_me>") then
+        extmark.set(line, { output, "Comment" })
+    end
 end
 
 return M
