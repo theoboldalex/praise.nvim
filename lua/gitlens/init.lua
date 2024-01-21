@@ -2,7 +2,6 @@ local git = require("gitlens.git")
 local M = {}
 
 function M.setup()
-    vim.opt.updatetime = 2000
     vim.api.nvim_create_autocmd({ "CursorHold" }, {
         buffer = 0,
         callback = function()
