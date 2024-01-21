@@ -1,11 +1,14 @@
-local utils = require("gitlens.utils")
 local extmark = require("gitlens.extmark")
 local M = {}
 local api = vim.api
 
+local function trim(s)
+    return s:match("^%s*(.-)%s*$")
+end
+
 local function exec(cmd)
     local output = vim.fn.system(cmd)
-    return utils.trim(output)
+    return trim(output)
 end
 
 function M.is_tracked_file(file_path)
