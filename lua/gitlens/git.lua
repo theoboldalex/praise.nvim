@@ -31,8 +31,8 @@ function M.blame()
     local cursor = api.nvim_win_get_cursor(0)
     local line = cursor[1]
     local blame_cmd = string.format(
-        -- TODO: remove dependencies on awk and sed (as wonderful as they are)
-        "git blame --date=relative -cL %d,%d %s | awk '{ print $2 \": \" $3 \" \" $4 \" \" $5 }' | sed 's/^(//'",
+    -- TODO: remove dependencies on awk and sed (as wonderful as they are)
+        "git blame --date=relative -cL %d,%d %s | awk -F\\t '{ print $2 \": \" $3 }' | sed 's/^(//'",
         line,
         line,
         file
