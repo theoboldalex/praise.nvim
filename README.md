@@ -39,7 +39,7 @@ You can change the point at which the blame information appears in the buffer by
 ```lua
 vim.opt.updatetime = 1000 -- the default is 4000ms
 ```
-> **Warning**
+> [!WARNING]
 > 
 > Setting very low `updatetime` values can have a negative effect on performance. make sure you have read and understood `h: updatetime` and `:h CursorMoved`.
 
