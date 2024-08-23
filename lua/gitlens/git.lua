@@ -19,7 +19,7 @@ function M.is_tracked_file(file_path)
     local cmd = string.format("git ls-files --error-unmatch %s", file_path)
     local result = exec(cmd)
 
-    return not string.match(result, "^error")
+    return not string.match(result, "^error") and not string.match(result, "^fatal")
 end
 
 function M.clear()
