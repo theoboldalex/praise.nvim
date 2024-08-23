@@ -1,4 +1,4 @@
-# Gitlens.nvim
+# Praise.nvim
 
 A simple NeoVim plugin that shows virtual inline Git blame information.
 
@@ -12,22 +12,22 @@ A simple NeoVim plugin that shows virtual inline Git blame information.
 
 ### Plug
 ```lua
-Plug 'theoboldalex/gitlens.nvim'
+Plug 'theoboldalex/praise.nvim'
 ```
 
 ### Packer
 ```lua
-use {'theoboldalex/gitlens.nvim'}
+use {'theoboldalex/praise.nvim'}
 ```
 
 ### Lazy
 ```lua
 -- init.lua
-{ 'theoboldalex/gitlens.nvim' }
+{ 'theoboldalex/praise.nvim' }
 
--- plugins/gitlens.lua
+-- plugins/praise.lua
 return {
-  'theoboldalex/gitlens.nvim'
+  'theoboldalex/praise.nvim'
 }
 ```
 
