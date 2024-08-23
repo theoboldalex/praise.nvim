@@ -3,13 +3,10 @@
 🙏 A simple NeoVim plugin that shows virtual inline Git blame information.
 
 ## Requirements
-✅ Neovim >= 0.9
-
-✅ awk
-
-✅ sed
-
-✅ git
+- Neovim >= 0.9
+- awk
+- sed
+-  git
 
 ## Installation
 
