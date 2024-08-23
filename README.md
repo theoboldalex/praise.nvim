@@ -6,7 +6,7 @@
 - Neovim >= 0.9
 - awk
 - sed
--  git
+- git
 
 ## Installation
 
