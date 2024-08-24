@@ -2,6 +2,8 @@
 
 🙏 A simple NeoVim plugin that shows virtual inline Git blame information.
 
+<img width="956" alt="image" src="https://github.com/user-attachments/assets/319f6461-6413-46d0-9794-8c14bd87212f">
+
 ## Requirements
 - Neovim >= 0.9
 - awk
