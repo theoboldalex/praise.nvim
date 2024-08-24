@@ -1,5 +1,4 @@
 local git = require("praise.git")
-local util = require("praise.util")
 
 vim.api.nvim_create_autocmd({ "CursorMoved" }, {
     callback = function()
